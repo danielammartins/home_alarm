@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <avr/io.h>
 #include "uartLib/uart.hpp"
 #include "ultrasonicLib/HCSR04.h"
@@ -43,13 +42,6 @@ void loop() {
 
 	// Measure duration of the pulse in ms
 	duration =  ultrasonicSensor.getEchoPulseLength();
-
-	/*
-	 * Sound travels at roughly 343 m/s, meaning one centimetre takes 29.155 microseconds
-	 * distance is speed / time, and if 29.155 microseconds equal 1cm, then distance = duration / 29
-	 * because duration is the time the pulse takes to go to and back from the object,
-	 * it needs to be divided by 2 to get just the distance to the object
-	 */
 
 	// Distance to and from the object
 	totalDistance = (duration / 29);
