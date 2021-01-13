@@ -4,7 +4,7 @@
 
 <p align="center">
 
-  <img width="200" src="https://github.com/danielammartins/home_alarm/blob/main/circuit.png" alt="Material Bread logo">
+  <img src="https://github.com/danielammartins/home_alarm/blob/main/circuit.png" alt="Material Bread logo">
 
 </p>
 
