@@ -18,4 +18,4 @@
 ## :envelope: Credits
 
 - **UART Library:** Pawel Krol, Cracow University of Technology
-- **HC-SR04:** [enjoyneering](https://github.com/enjoyneering/HCSR04)
+- **HC-SR04 Library:** [enjoyneering](https://github.com/enjoyneering/HCSR04)
