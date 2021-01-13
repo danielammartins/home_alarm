@@ -1,5 +1,7 @@
 <h1 align="center"> Home Alarm System with Arduino </h2>
 
+A simple alarm system that activates a red LED and triggers a buzzer every time the security perimeter is crossed. 
+
 ## :hammer_and_wrench: Schematics
 
 <p align="center">
