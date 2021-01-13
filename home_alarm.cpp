@@ -1,4 +1,5 @@
 #include <avr/io.h>
+#include <stdio.h>
 #include "uartLib/uart.hpp"
 #include "ultrasonicLib/HCSR04.h"
 
@@ -62,7 +63,15 @@ void loop() {
 		PORTD &= ~(1 << ledRed);	// turn off red led
 	}
 
-  Serial.print("Distance in centimeters: ");
-  Serial.println(distance);
-  delay(200);
+
+	sprintf(str, "Distance: %d", distance);
+	USART_Transmit_String(str);
+	_delay_ms(200);
+
+	/*
+	Serial.print("Distance: ");
+	Serial.println(distance);
+	_delay_ms(200);
+	*/
+
 }
