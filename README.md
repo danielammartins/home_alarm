@@ -2,8 +2,11 @@
 
 ## :hammer_and_wrench: Schematics
 
-<center>![circuit](https://github.com/danielammartins/home_alarm/blob/main/circuit.png)</center>
+<p align="center">
 
+  <img width="200" src="https://github.com/danielammartins/home_alarm/blob/main/circuit.png" alt="Material Bread logo">
+
+</p>
 
 ## :hammer_and_wrench: Overview
 
