@@ -10,18 +10,18 @@
 #define MYUBRR  F_CPU/16/BAUD-1
 
 // Pins
-#define trigPin PB4 		// trigger pin connected to digital pin 12
-#define echoPin PB5 		// echo pin connected to digital pin 13
-#define buzzerPin PB1		// buzzer pin connected to digital pin 9
-#define ledRed PD7 			// Blue led connected to digital pin 6
-#define ledOn PD6 			// Blue led connected to digital pin 6
+#define trigPin PD4 		// trigger pin connected to digital pin 12
+#define echoPin PD3 		// echo pin connected to digital pin 13
+#define buzzerPin PD2		// buzzer pin connected to digital pin 9
+#define ledRed PD6 			// Blue led connected to digital pin 7
+#define ledOn PD5 			// Blue led connected to digital pin 6
 
 /*
  * Sensor initialisation
  * HCSR04(trigger, echo, temperature, distance)
- * Assuming room temperature = 20ºC and max distance 300cm
+ * Assuming room temperature = 20ÂºC and max distance 300cm
 */
-HCSR04 ultrasonicSensor(12, 13, 20, 300);
+HCSR04 ultrasonicSensor(4, 3, 20, 300);
 
 int totalDistance, distance, duration;
 unsigned char str[100];
@@ -31,10 +31,10 @@ void setup() {
 	init_uart(MYUBRR);
 
 	// Pin configurations
-	DDRB |= (1 << DDB4); 					// trigger pin as output
-	DDRB &= ~(1 << DDB5);					// echo pin as input
-	DDRB |= (1 << DDB1); 					// buzzer pin as output
-	DDRB |= ((1 << DDD6) | (1 << DDD7)); 	// led pins as output
+	DDRD |= (1 << DDD4); 					// trigger pin as output
+	DDRD &= ~(1 << DDD3);					// echo pin as input
+	DDRD |= (1 << DDD2); 					// buzzer pin as output
+	DDRD |= ((1 << DDD5) | (1 << DDD6)); 	// led pins as output
 
 	//ultrasonicSensor.begin(); //set trigger as output & echo pin as input - LIBRARY FUNCTION
 }
@@ -52,26 +52,21 @@ void loop() {
 
 	// BUZZER ON
 	if (distance > 0 && distance < SAFETY){
-		PORTB |= (1 << buzzerPin);   // turn on buzzer
+		PORTD |= (1 << buzzerPin);   // turn on buzzer
 		PORTD |= (1 << ledRed);		// turn on red led
 		PORTD &= ~(1 << ledOn);     // turn off blue led
 	}
 	// BUZZER OFF
 	else {
-		PORTB &= ~(1 << buzzerPin);  //turn on buzzer
+		PORTD &= ~(1 << buzzerPin);  //turn off buzzer
 		PORTD |= (1 << ledOn);  	// turn on blue led
 		PORTD &= ~(1 << ledRed);	// turn off red led
 	}
 
 
-	sprintf(str, "Distance: %d", distance);
-	USART_Transmit_String(str);
-	_delay_ms(200);
-
 	/*
-	Serial.print("Distance: ");
-	Serial.println(distance);
-	_delay_ms(200);
+		Serial.print("Distance: ");
+		Serial.println(distance);
+		_delay_ms(200);
 	*/
-
 }
