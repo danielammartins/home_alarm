@@ -2,6 +2,9 @@
 
 ## :hammer_and_wrench: Schematics
 
+![circuit](https://github.com/danielammartins/home_alarm/blob/main/circuit.jpeg)
+
+
 ## :hammer_and_wrench: Overview
 
 **Materials Used:**
