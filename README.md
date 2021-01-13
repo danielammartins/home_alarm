@@ -2,7 +2,7 @@
 
 ## :hammer_and_wrench: Schematics
 
-![circuit](https://github.com/danielammartins/home_alarm/blob/main/circuit.jpeg)
+![circuit](https://github.com/danielammartins/home_alarm/blob/main/circuit.png)
 
 
 ## :hammer_and_wrench: Overview
