@@ -10,11 +10,11 @@
 #define MYUBRR  F_CPU/16/BAUD-1
 
 // Pins
-#define trigPin PD4 		// trigger pin connected to digital pin 12
-#define echoPin PD3 		// echo pin connected to digital pin 13
-#define buzzerPin PD2		// buzzer pin connected to digital pin 9
-#define ledRed PD6 			// Blue led connected to digital pin 7
-#define ledOn PD5 			// Blue led connected to digital pin 6
+#define trigPin PD4 		// trigger pin connected to digital pin 4
+#define echoPin PD3 		// echo pin connected to digital pin 3
+#define buzzerPin PD2		// buzzer pin connected to digital pin 2
+#define ledRed PD6 			// Blue led connected to digital pin 6
+#define ledOn PD5 			// Blue led connected to digital pin 5
 
 /*
  * Sensor initialisation
@@ -34,7 +34,7 @@ void setup() {
 	DDRD |= (1 << DDD4); 					// trigger pin as output
 	DDRD &= ~(1 << DDD3);					// echo pin as input
 	DDRD |= (1 << DDD2); 					// buzzer pin as output
-	DDRD |= ((1 << DDD5) | (1 << DDD6)); 	// led pins as output
+	DDRD |= ((1 << DDD6) | (1 << DDD6)); 	// led pins as output
 
 	//ultrasonicSensor.begin(); //set trigger as output & echo pin as input - LIBRARY FUNCTION
 }
@@ -56,6 +56,7 @@ void loop() {
 		PORTD |= (1 << ledRed);		// turn on red led
 		PORTD &= ~(1 << ledOn);     // turn off blue led
 	}
+
 	// BUZZER OFF
 	else {
 		PORTD &= ~(1 << buzzerPin);  //turn off buzzer
@@ -63,10 +64,8 @@ void loop() {
 		PORTD &= ~(1 << ledRed);	// turn off red led
 	}
 
+	sprintf(str, "Distance: %d", distance);
+	USART_Transmit_String(str);
+	_delay_ms(200);
 
-	/*
-		Serial.print("Distance: ");
-		Serial.println(distance);
-		_delay_ms(200);
-	*/
 }
